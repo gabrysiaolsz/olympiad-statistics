@@ -8,14 +8,17 @@ def index(request):
 
 
 def countries_by_medals(request, year, medal):
-    year_filter = Statistics.objects.filter(games__year=year)
+    if year:
+        res = Statistics.objects.filter(games__year=year)
+    else:
+        res = Statistics.objects
 
     if medal == "gold":
-        result = year_filter.filter(medal__icontains='gold')
+        result = res.filter(medal__icontains='gold')
     elif medal == "silver":
-        result = year_filter.filter(medal__icontains='silver')
+        result = res.filter(medal__icontains='silver')
     else:
-        result = year_filter.filter(medal__icontains='bronze')
+        result = res.filter(medal__icontains='bronze')
 
     result = result.values('noc__region').annotate(medals_count=Count('noc')).order_by('-medals_count')
 
@@ -32,6 +35,34 @@ def players_by_medals(request):
         .annotate(bronze_counts=Count('medal', filter=Q(medal__icontains='bronze')))\
         .filter(Q(gold_counts__gte=1) | Q(silver_counts__gte=1) | Q(bronze_counts__gte=1))\
         .order_by('-gold_counts', '-silver_counts', '-bronze_counts')
+
+    if not result:
+        raise Http404()
+    return HttpResponse(result)
+
+
+def countries_by_players_count(request, year):
+    result = Statistics.objects.filter(games__year=year)\
+        .values('noc__region')\
+        .annotate(players_count=Count('player_id', distinct=True))\
+        .order_by('-players_count')
+
+    if not result:
+        raise Http404()
+    return HttpResponse(result)
+
+
+def sex_percentage(request, year):
+    if year != 0:
+        res = Statistics.objects.filter(games__year=year)
+    else:
+        res = Statistics.objects
+
+    female_count = res.filter(player_id__sex='F').values('player_id').distinct().count()
+    male_count = res.filter(player_id__sex='M').values('player_id').distinct().count()
+
+    result = "female_percentage: " + str(round(female_count/(female_count + male_count), 3))
+    result += " male_percentage: " + str(round(male_count/(female_count + male_count), 3))
 
     if not result:
         raise Http404()

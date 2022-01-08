@@ -1,12 +1,12 @@
 from django.db import models
 
 
-class NocRegions(models.Model):
-    noc = models.CharField(primary_key=True, max_length=4)
-    region = models.CharField(max_length=50)
+class Country(models.Model):
+    country_code = models.CharField(primary_key=True, max_length=4)
+    country_name = models.CharField(max_length=50)
 
     def __str__(self):
-        return 'noc: %s, region: %s' % (self.noc, self.region)
+        return 'code: %s, country: %s' % (self.country_code, self.country_name)
 
 
 class OlympiadInfo(models.Model):
@@ -19,7 +19,7 @@ class OlympiadInfo(models.Model):
         return self.games
 
 
-class Player(models.Model):
+class Athlete(models.Model):
     name = models.CharField(max_length=120)
     height = models.CharField(max_length=5)
     sex = models.CharField(max_length=1)
@@ -29,14 +29,15 @@ class Player(models.Model):
 
 
 class Statistics(models.Model):
-    player_id = models.ForeignKey(Player, on_delete=models.CASCADE)
+    player_id = models.ForeignKey(Athlete, on_delete=models.CASCADE)
     age = models.CharField(max_length=5)
     weight = models.CharField(max_length=20)
-    noc = models.ForeignKey(NocRegions, on_delete=models.CASCADE)
+    country_code = models.ForeignKey(Country, on_delete=models.CASCADE)
     games = models.ForeignKey(OlympiadInfo, to_field="games", on_delete=models.CASCADE)
     sport = models.CharField(max_length=25)
     event = models.CharField(max_length=90)
     medal = models.CharField(max_length=10)
 
     def __str__(self):
-        return 'player_id: %s, noc: %s, games: %s, medal: %s' % (self.player_id, self.noc, self.games, self.medal)
+        return 'player_id: %s, code: %s, games: %s, medal: %s' % (
+            self.player_id, self.country_code, self.games, self.medal)
