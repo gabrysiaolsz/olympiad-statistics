@@ -31,7 +31,7 @@ class Athlete(models.Model):
 class Statistics(models.Model):
     player_id = models.ForeignKey(Athlete, on_delete=models.CASCADE)
     age = models.CharField(max_length=5)
-    weight = models.CharField(max_length=20)
+    weight = models.IntegerField()
     country_code = models.ForeignKey(Country, on_delete=models.CASCADE)
     games = models.ForeignKey(OlympiadInfo, to_field="games", on_delete=models.CASCADE)
     sport = models.CharField(max_length=25)
