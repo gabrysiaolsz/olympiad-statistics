@@ -1,6 +1,6 @@
 from django.core.exceptions import BadRequest
-from django.http import HttpResponse, Http404
-from django.db.models import Count, Q, Max
+from django.http import Http404
+from django.db.models import Count, Q
 from django.shortcuts import render
 
 from stats.models import Statistics
@@ -156,3 +156,37 @@ def athletes_by_weight(request):
 
     context = {'res': result}
     return render(request, 'stats/athletes_by_weight.html', context)
+
+
+def athletes_by_age(request):
+    year = request.GET.get("year")
+    if year:
+        try:
+            year = int(year)
+        except:
+            raise BadRequest()
+        result = Statistics.objects.filter(games__year=year)
+    else:
+        result = Statistics.objects
+
+    result = result.exclude(age=-1).values('player_id__name', 'age').order_by('-age').distinct()
+
+    if not result:
+        raise Http404()
+
+    context = {'res': result}
+    return render(request, 'stats/athletes_by_age.html', context)
+
+
+def countries_by_gold_medals(request, country_code):
+
+    result = Statistics.objects.filter(country_code__country_code__icontains=country_code)\
+        .filter(medal__icontains='gold')\
+        .values('games_id').annotate(medal_count=Count('games_id'))\
+        .order_by('-medal_count')
+
+    if not result:
+        raise Http404()
+
+    context = {'res': result}
+    return render(request, 'stats/countries_by_gold_medals.html', context)

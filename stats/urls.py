@@ -9,5 +9,7 @@ urlpatterns = [
     path('country/ranking/by_players', views.countries_by_athletes_count),
     path('athlete/ranking/by_gender_ratio', views.sex_percentage),
     path('sport/ranking/by_athlete_count', views.sport_by_athlete_count),
-    path('athlete/ranking/by_weight', views.athletes_by_weight)
+    path('athlete/ranking/by_weight', views.athletes_by_weight),
+    path('athlete/ranking/by_age', views.athletes_by_age),
+    path('country/<str:country_code>/by_gold_medals', views.countries_by_gold_medals)
 ]
