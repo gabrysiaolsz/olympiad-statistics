@@ -61,6 +61,7 @@ lib64/
 parts/
 sdist/
 var/
+bin/
 wheels/
 *.egg-info/
 .installed.cfg
@@ -137,3 +138,7 @@ GitHub.sublime-settings
 .history
 
 .idea/*
+
+
+bin/*
+share/*
