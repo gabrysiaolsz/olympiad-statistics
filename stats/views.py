@@ -1,9 +1,10 @@
 from django.core.exceptions import BadRequest
+from django.db.models.functions import Round
 from django.http import Http404
-from django.db.models import Count, Q
+from django.db.models import Count, Q, Avg
 from django.shortcuts import render
 
-from stats.models import Statistics
+from stats.models import Statistics, Athlete
 
 
 def index(request):
@@ -190,3 +191,26 @@ def countries_by_gold_medals(request, country_code):
 
     context = {'res': result}
     return render(request, 'stats/countries_by_gold_medals.html', context)
+
+
+def delete_statistics_by_id(request, statistics_id):
+    try:
+        record = Statistics.objects.get(pk=statistics_id)
+        record.delete()
+    except:
+        raise Http404("delete unsuccessful")
+
+    context = {'res': "delete successful"}
+    return render(request, 'stats/delete_statistics_by_id.html', context)
+
+
+def mean_height(request):
+
+    f = Athlete.objects.filter(sex__exact='F').aggregate(Avg('height'))
+    m = Athlete.objects.filter(sex__exact='M').aggregate(Avg('height'))
+
+    if not f or not m:
+        raise Http404()
+
+    context = {'female_mean': f, 'male_mean': m}
+    return render(request, 'stats/mean_height.html', context)
