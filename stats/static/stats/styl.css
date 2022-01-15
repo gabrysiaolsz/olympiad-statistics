@@ -1,0 +1,154 @@
+body
+{
+	/*background: url("img/tlo.jpg") no-repeat 0px 0px!important;*/
+	background-color: #2f67aa;
+	background-size: 100% 100%!important; 
+	background-attachment: fixed!important;
+	width: 100%;
+	height: 100%!important;
+	margin: 0!important;
+	font-family: 'Fira Sans', sans-serif;
+}
+
+.calosc
+{
+	max-width: 1500px;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 70px;
+	background-color: #91887D;
+	border-radius: 5px;
+	-webkit-box-shadow: 0px 0px 40px 0px rgba(48,32,13,1);
+	-moz-box-shadow: 0px 0px 40px 0px rgba(48,32,13,1);
+	box-shadow: 0px 0px 40px 0px rgba(48,32,13,1);
+	color: #292929;
+}
+
+/*NAGŁÓWEK*/
+.naglowek
+{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0;
+}
+
+.slajd-naglowek
+{
+	width:100%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+#nag
+{
+	width: 100%;
+}
+/*NAGŁÓWEK-KONIEC*/
+
+
+
+/*INFORMACJE*/
+.informacje
+{
+	background-color: #bcc0c3;
+	padding: 30px;
+	color: #2d3f41;
+	border-radius: 5px;
+}
+
+.tytul-strony
+{
+	font-size: 50px;
+	font-weight: 900;
+	letter-spacing: 2px;
+	text-shadow:0 0 6px #6B6560;
+	color: #2d3f41;
+}
+
+
+
+.kropeczki
+{
+	height: 5px;
+	margin-top: 15px;
+	margin-bottom: 20px;
+	border-bottom: 2px dotted #3d3f41;
+}
+
+.informacje a
+{
+	text-decoration: none;
+	color: #2d3f41; /* 3E464F;*/
+	/*font-size: 20px;*/
+}
+
+.informacje a:hover
+{
+	color: #122930;
+}
+
+input[type=submit]
+{
+	width: 300px;
+	background-color: #366DB0;
+	font-size:20px;
+	color: white;
+	padding: 15px 10px;
+	margin-top: 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	letter-spacing: 2px;
+	outline: none;
+}
+
+input[type=submit]:focus
+{
+	-webkit-box-shadow: 0px 0px 15px 5px rgba(204,204,204,0.9);
+	-moz-box-shadow: 0px 0px 15px 5px rgba(204,204,204,0.9);
+	box-shadow: 0px 0px 15px 5px rgba(204,204,204,0.9);
+}
+
+input[type=submit]:hover
+{
+	background-color: #3772B9;
+}
+
+table, th, td 
+{
+    border: 1px solid #000000;
+}
+
+/*INFORMACJE-KONIEC*/
+
+/*STOPKA*/
+.stopka
+{
+	padding: 10px;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	background-color: #f2f2f2;
+	text-align: center;
+}
+/*STOPKA-KONIEC*/
+
+
+
+/*SCROLLUP*/
+.scrollup
+{
+	width: 64px;
+	height: 64px;
+	text-decoration: none;
+	background: url("img/UP.png") no-repeat 0px 0px;
+	position: fixed;
+	right: 50px;
+	bottom: 80px;
+	display: none;
+}
+/*SCROLLUP-KONIEC*/
+
