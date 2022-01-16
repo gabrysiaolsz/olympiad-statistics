@@ -1,74 +1,21 @@
-{% load static %}
+{% include "stats/navbar.html" %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'stats/styl.css' %}">
+Ranking of gold medals for the country {{ country }} broken down by Olympics
+<table>
+    <tr>
+        <th>Name of olympic games</th>
+        <th>Number of medals</th>
+    </tr>
+    {% for item in res %}
+        <tr>
+            <td>{{ item.games_id }}</td>
+            <td>{{ item.medal_count }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
 
-<script src="{% static 'stats/scripts/jquery-3.1.1.min.js' %}"></script>
-<!--<script src="{% static 'stats/scripts/naglowek.js' %}"></script>-->
+</div>
 
-
-<!DOCTYPE HTML>
-<html lang="pl">
-<head>
-	<meta charset="UTF-8"/>
-	
-	<title>Olympic statistics </title>
-
-	<!--CZCIONKI-->
-	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-	<!--CZCIONKI-KONIEC-->
-
-	<script> //SKRYPT ODPOWIADA ZA POJAWIENIE SIĘ PRZYCISKY SKROLUJĄCEGO DO GÓRY 
-	         //(przydatne przy wyświetlaniu dużych tabel)
-		
-		jQuery(function($)
-		{
-			//zresetuj scrolla
-			$.scrollTo(0);
-			
-			$('.scrollup').click(function() { $.scrollTo($('body'), 1000); });
-		}
-		);
-		
-		//pokaż podczas przewijania
-		$(window).scroll(function()
-		{
-			if($(this).scrollTop()>200) $('.scrollup').fadeIn();
-			else $('.scrollup').fadeOut();		
-		}
-		);
-	
-	</script>
-	
-</head>
-<body onload="change()">
-
-	<a href="#" class="scrollup"></a>
-
-	<div class="calosc">
-		<div class="naglowek"><div id="nag"></div></div>
-		<div class="informacje">
-			<span class="tytul-strony"></br>
-			    <a href="index.html" style="font-sixe: 50px">Back to the home page</a>			   
-			</span>
-				
-			<div class="kropeczki"></div>
-
-               Ranking of gold medals for the country {{ country }} broken down by Olympics
-               <table>
-                    <tr>
-                        <th>Name of olympic games</th>
-                        <th>Number of medals</th>
-                    </tr>
-                    {% for item in res %}
-                    <tr>
-                        <td>{{ item.games_id }}</td>
-                        <td>{{ item.medal_count }}</td>
-                    </tr>
-                    {% endfor %}
-                </table>
-		</div>
-
-	</div>
-	
 </body>
 </html>
