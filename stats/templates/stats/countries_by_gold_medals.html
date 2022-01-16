@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'stats/styl.css' %}">
 
 <script src="{% static 'stats/scripts/jquery-3.1.1.min.js' %}"></script>
-<script src="{% static 'stats/scripts/naglowek.js' %}"></script>
+<!--<script src="{% static 'stats/scripts/naglowek.js' %}"></script>-->
 
 
 <!DOCTYPE HTML>
@@ -12,18 +12,11 @@
 	<meta charset="UTF-8"/>
 	
 	<title>Olympic statistics </title>
-	
-	<!--<link rel="stylesheet" href="styl.css" type="text/css" /> --><!--PODPIĘCIE CSS-->
-	
+
 	<!--CZCIONKI-->
 	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
 	<!--CZCIONKI-KONIEC-->
-	
-	
-	<!--<script src="scripts/jquery-3.1.1.min.js"></script>--><!--PODPIĘCIE BIBLIOTEKI-->
-	<!--<script src="scripts/naglowek.js"></script>--><!--PODPIĘCIE SLAJDÓW W NAGLÓWKU-->
 
-		
 	<script> //SKRYPT ODPOWIADA ZA POJAWIENIE SIĘ PRZYCISKY SKROLUJĄCEGO DO GÓRY 
 	         //(przydatne przy wyświetlaniu dużych tabel)
 		
@@ -49,25 +42,33 @@
 </head>
 <body onload="change()">
 
-
-
 	<a href="#" class="scrollup"></a>
 
 	<div class="calosc">
 		<div class="naglowek"><div id="nag"></div></div>
 		<div class="informacje">
 			<span class="tytul-strony"></br>
-			    Olympic statistics 
+			    <a href="index.html" style="font-sixe: 50px">Back to the home page</a>			   
 			</span>
+				
 			<div class="kropeczki"></div>
 
-            {{ res }}
-            
+               Ranking of gold medals for the country {{ country }} broken down by Olympics
+               <table>
+                    <tr>
+                        <th>Name of olympic games</th>
+                        <th>Number of medals</th>
+                    </tr>
+                    {% for item in res %}
+                    <tr>
+                        <td>{{ item.games_id }}</td>
+                        <td>{{ item.medal_count }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
 		</div>
 
 	</div>
-	
-
 	
 </body>
 </html>

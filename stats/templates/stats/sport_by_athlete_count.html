@@ -3,8 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'stats/styl.css' %}">
 
 <script src="{% static 'stats/scripts/jquery-3.1.1.min.js' %}"></script>
-<script src="{% static 'stats/scripts/naglowek.js' %}"></script>
-
+<!--<script src="{% static 'stats/scripts/naglowek.js' %}"></script>-->
 
 <!DOCTYPE HTML>
 <html lang="pl">
@@ -13,16 +12,9 @@
 	
 	<title>Olympic statistics </title>
 	
-	<!--<link rel="stylesheet" href="styl.css" type="text/css" /> --><!--PODPIĘCIE CSS-->
-	
 	<!--CZCIONKI-->
 	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
 	<!--CZCIONKI-KONIEC-->
-	
-	
-	<!--<script src="scripts/jquery-3.1.1.min.js"></script>--><!--PODPIĘCIE BIBLIOTEKI-->
-	<!--<script src="scripts/naglowek.js"></script>--><!--PODPIĘCIE SLAJDÓW W NAGLÓWKU-->
-
 		
 	<script> //SKRYPT ODPOWIADA ZA POJAWIENIE SIĘ PRZYCISKY SKROLUJĄCEGO DO GÓRY 
 	         //(przydatne przy wyświetlaniu dużych tabel)
@@ -49,25 +41,34 @@
 </head>
 <body onload="change()">
 
-
-
 	<a href="#" class="scrollup"></a>
 
 	<div class="calosc">
 		<div class="naglowek"><div id="nag"></div></div>
 		<div class="informacje">
 			<span class="tytul-strony"></br>
-			    Olympic statistics 
+			    <a href="index.html" style="font-sixe: 50px">Back to the home page</a>			   
 			</span>
+				
 			<div class="kropeczki"></div>
-
-            {{ res }}
+               
+               Sports rankings after the one with the most entrants in the year {{ year }} <br> <br>
+               <table>
+                    <tr>
+                        <th>Sport</th>
+                        <th>Number of athletes</th>
+                    </tr>
+                    {% for item in res %}
+                    <tr>
+                        <td>{{ item.player_id__statistics__sport }}</td>
+                        <td>{{ item.athlete_count }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
             
 		</div>
 
 	</div>
-	
-
 	
 </body>
 </html>

@@ -11,6 +11,11 @@ def index(request):
     return render(request, 'stats/index.html', context)
 
 
+#def Qcountries_by_medals(request):
+#    return render(request, 'stats/Qcountries_by_medals.html', context)
+
+
+
 def countries_by_medals(request, medal):
     year = request.GET.get("year")
     if year:
