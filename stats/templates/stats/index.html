@@ -1,14 +1,13 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'stats/styl.css' %}">
-
 <script src="{% static 'stats/scripts/jquery-3.1.1.min.js' %}"></script>
 <!--<script src="{% static 'stats/scripts/naglowek.js' %}"></script>-->
-
 
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
+<<<<<<< HEAD
 	<meta charset="UTF-8"/>
 	
 	<title>Olympic statistics </title>
@@ -39,13 +38,81 @@
 	
 	</script>
 	
+=======
+    <meta charset="UTF-8"/>
+
+    <title>Olympic statistics </title>
+
+    <!--CZCIONKI-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <!--CZCIONKI-KONIEC-->
+
+    <script> //SKRYPT ODPOWIADA ZA POJAWIENIE SIĘ PRZYCISKU SKROLUJĄCEGO DO GÓRY
+    //(przydatne przy wyświetlaniu dużych tabel)
+
+    {#jQuery(function ($) {#}
+    {#        //zresetuj scrolla#}
+    {#        $.scrollTo(0);#}
+    {##}
+    {#        $('.scrollup').click(function () {#}
+    {#            $.scrollTo($('body'), 1000);#}
+    {#        });#}
+    {#    }#}
+    {#);#}
+
+    //pokaż podczas przewijania
+    $(window).scroll(function () {
+            if ($(this).scrollTop() > 200) $('.scrollup').fadeIn();
+            else $('.scrollup').fadeOut();
+        }
+    );
+
+    </script>
+
+>>>>>>> b6056243dd4c587f42716d4ae6967bb7ded74d9d
 </head>
 <body onload="change()">
+<a href="#" class="scrollup"></a>
+
+<div class="calosc">
+    <div class="naglowek">
+        <img id="nag" class="slajd-naglowek"/>
+    </div>
+    <div class="informacje">
+			<span class="tytul-strony">
+                Olympic statistics
+			</span>
+        <div class="kropeczki"></div>
 
 
+        <p> Below is a list of questions that our application can answer. </p>
+        <ul>
+            <li><a href="countries_by_medals.html"> Show country rankings by number of medals of color ... in the year
+                ... </a></li>
+            <li><a href="Qathletes_by_medals.html"> Show the ranking of participants who obtained the most medals in the
+                year ... </a></li>
+            <li><a href="Qcountries_by_athletes_count.html"> Show the rankings of the countries with the most players in
+                the year ... </a></li>
+            <li><a href="Qsex_percentage.html"> Show what percentage of all participants were women / men in the year
+                ... </a></li>
+            <li><a href="Qsport_by_athlete_count.html"> Show the sports rankings after the one with the most entrants in
+                the year ... </a></li>
+            <li><a href="Qathletes_by_weight.html"> Show the ranking of the heaviest participants of the year ... </a>
+            </li>
+            <li><a href="Qathletes_by_age.html"> Show the ranking of the oldest athletes of the year ... </a></li>
+            <li><a href="Qcountries_by_gold_medals.html"> Show the ranking of gold medals for the country ... broken
+                down by Olympics </a>
 
-	<a href="#" class="scrollup"></a>
+        </ul>
 
+        <span> <a href="add_data.html"> Add new data to the database</a>  </span>
+
+    </div>
+
+</div>
+
+
+<<<<<<< HEAD
 	<div class="calosc">
 		<div class="naglowek"><div id="nag"></div></div>
 		<div class="informacje">
@@ -87,6 +154,8 @@
 	
 
 	
+=======
+>>>>>>> b6056243dd4c587f42716d4ae6967bb7ded74d9d
 </body>
 </html>
 
