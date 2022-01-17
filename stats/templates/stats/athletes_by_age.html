@@ -1,22 +1,18 @@
 {% include "stats/navbar.html" %}
 
-Ranking of the oldest athletes of the year {{ item.year }}
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Age</th>
-    </tr>
-    {% for item in res %}
+    Ranking of the oldest athletes of the year {{ year }} <br><br>
+    <table>
         <tr>
-            <td>{{ item.player_id__name }}</td>
-            <td>{{ item.age }}</td>
+            <th>Name</th>
+            <th>Age</th>
         </tr>
-    {% endfor %}
-</table>
+        {% for item in res %}
+            <tr>
+                <td>{{ item.player_id__name }}</td>
+                <td>{{ item.age }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 
-</div>
 
-</div>
-
-</body>
-</html>
+{% include "stats/footer.html" %}

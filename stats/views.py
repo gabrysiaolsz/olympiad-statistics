@@ -11,9 +11,32 @@ def index(request):
     return render(request, 'stats/index.html', context)
 
 
-#def Qcountries_by_medals(request):
-#    return render(request, 'stats/Qcountries_by_medals.html', context)
+def Qathletes_by_age(request):
+    return render(request, 'stats/Qathletes_by_age.html')
 
+def Qathletes_by_medals(request):
+    return render(request, 'stats/Qathletes_by_medals.html')
+    
+def Qathletes_by_weight(request):
+    return render(request, 'stats/Qathletes_by_weight.html')    
+    
+def Qcountries_by_athletes_count(request):
+    return render(request, 'stats/Qcountries_by_athletes_count.html')       
+    
+def Qcountries_by_gold_medals(request):
+    return render(request, 'stats/Qcountries_by_gold_medals.html')  
+    
+def Qcountries_by_medals(request):
+    return render(request, 'stats/Qcountries_by_medals.html')  
+
+def Qmean_height(request):
+    return render(request, 'stats/Qmean_height.html')  
+    
+def Qsex_percentage(request):
+    return render(request, 'stats/Qsex_percentage.html')  
+    
+def Qsport_by_athlete_count(request):
+    return render(request, 'stats/Qsport_by_athlete_count.html')      
 
 
 def countries_by_medals(request, medal):
@@ -69,7 +92,7 @@ def athletes_by_medals(request):
     if not result:
         raise Http404()
 
-    context = {'res': result}
+    context = {'res': result, 'year': year}
     return render(request, 'stats/athletes_by_medals.html', context)
 
 
@@ -91,7 +114,7 @@ def countries_by_athletes_count(request):
     if not result:
         raise Http404()
 
-    context = {'res': result}
+    context = {'res': result, 'year': year}
     return render(request, 'stats/countries_by_athletes_count.html', context)
 
 
@@ -139,7 +162,7 @@ def sport_by_athlete_count(request):
     if not result:
         raise Http404()
 
-    context = {'res': result}
+    context = {'res': result, 'year': year}
     return render(request, 'stats/sport_by_athlete_count.html', context)
 
 
@@ -159,7 +182,7 @@ def athletes_by_weight(request):
     if not result:
         raise Http404()
 
-    context = {'res': result}
+    context = {'res': result, 'year': year}
     return render(request, 'stats/athletes_by_weight.html', context)
 
 
@@ -179,7 +202,7 @@ def athletes_by_age(request):
     if not result:
         raise Http404()
 
-    context = {'res': result}
+    context = {'res': result, 'year': year}
     return render(request, 'stats/athletes_by_age.html', context)
 
 

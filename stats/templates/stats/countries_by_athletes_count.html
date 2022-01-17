@@ -1,24 +1,19 @@
 {% include "stats/navbar.html" %}
 
 
-Rankings of the countries with the most players in the year {{ year }}
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Number of participiants</th>
-    </tr>
-    {% for item in res %}
+    Rankings of the countries with the most players in the year {{ year }} <br><br>
+    <table>
         <tr>
-            <td>{{ item.country_code__country_name }}</td>
-            <td>{{ item.athlete_count }}</td>
+            <th>Name</th>
+            <th>Number of participiants</th>
         </tr>
-    {% endfor %}
-</table>
+        {% for item in res %}
+            <tr>
+                <td>{{ item.country_code__country_name }}</td>
+                <td>{{ item.athlete_count }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 
-</div>
 
-</div>
-
-
-</body>
-</html>
+{% include "stats/footer.html" %}

@@ -1,0 +1,13 @@
+{% include "stats/navbar.html" %}			
+             
+    <form action="country/{{ country }}/by_gold_medals" method="get" 
+        onsubmit=function() {
+            
+        }>           
+        Show the number of gold medals for the country <input name="country">  on the given Olympic Games of the year  <input name="year">
+        <br>
+        <input type="submit" value="show statistic">
+    </form>   
+     
+         
+{% include "stats/footer.html" %}

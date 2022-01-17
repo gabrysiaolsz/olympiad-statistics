@@ -1,26 +1,23 @@
 {% include "stats/navbar.html" %}
 
-Ranking of participants who obtained the most medals in the year {{ year }}
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Number of gold medals</th>
-        <th>Number of silver medals</th>
-        <th>Number of bronze medals</th>
-    </tr>
-    {% for item in res %}
+
+    Ranking of participants who obtained the most medals in the year {{ year }} <br><br>
+    <table>
         <tr>
-            <td>{{ item.player_id__name }}</td>
-            <td>{{ item.gold_counts }}</td>
-            <td>{{ item.silver_counts }}</td>
-            <td>{{ item.bronze_counts }}</td>
+            <th>Name</th>
+            <th>Number of gold medals</th>
+            <th>Number of silver medals</th>
+            <th>Number of bronze medals</th>
         </tr>
-    {% endfor %}
-</table>
+        {% for item in res %}
+            <tr>
+                <td>{{ item.player_id__name }}</td>
+                <td>{{ item.gold_counts }}</td>
+                <td>{{ item.silver_counts }}</td>
+                <td>{{ item.bronze_counts }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 
-</div>
 
-</div>
-
-</body>
-</html>
+{% include "stats/footer.html" %}
