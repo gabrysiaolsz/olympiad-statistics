@@ -120,6 +120,15 @@ input[type=submit]:hover
 table, th, td 
 {
     border: 1px solid #000000;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3px;
+}
+
+.okienko 
+{
+    margin: 10px;
 }
 
 /*INFORMACJE-KONIEC*/
@@ -152,3 +161,8 @@ table, th, td
 }
 /*SCROLLUP-KONIEC*/
 
+/*.pie {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  background: yellowgreen;
+}*/

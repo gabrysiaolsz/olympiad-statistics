@@ -15,6 +15,7 @@ urlpatterns = [
     path('sport/ranking/by_athlete_count', views.sport_by_athlete_count),
     
     path('olympiad/athlete_results/<int:statistics_id>', views.delete_statistics_by_id),
+    path('add_data', views.add_data),
         
     path('Qby_age', views.Qathletes_by_age),
     path('Qathletes_by_medals', views.Qathletes_by_medals),

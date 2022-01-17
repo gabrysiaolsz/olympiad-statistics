@@ -37,6 +37,9 @@ def Qsex_percentage(request):
     
 def Qsport_by_athlete_count(request):
     return render(request, 'stats/Qsport_by_athlete_count.html')      
+    
+def add_data(request):
+    return render(request, 'stats/add_data.html')  
 
 
 def countries_by_medals(request, medal):
@@ -134,13 +137,15 @@ def sex_percentage(request):
     female_count = res.filter(player_id__sex='F').values('player_id').distinct().count()
     male_count = res.filter(player_id__sex='M').values('player_id').distinct().count()
 
-    result += "female_percentage: " + str(round(female_count / (female_count + male_count), 3))
-    result += " male_percentage: " + str(round(male_count / (female_count + male_count), 3))
+    #result += "female_percentage: " + str(round(female_count / (female_count + male_count), 3))
+    #result += " male_percentage: " + str(round(male_count / (female_count + male_count), 3))
 
     if not result:
         raise Http404()
 
-    context = {'res': result}
+    context = {'female': round(female_count / (female_count + male_count), 3), 
+               'male': round(male_count / (female_count + male_count), 3), 
+               'year': year}
     return render(request, 'stats/sex_percentage.html', context)
 
 

@@ -4,13 +4,13 @@
     Rankings of the countries with the most players in the year {{ year }} <br><br>
     <table>
         <tr>
-            <th>Name</th>
-            <th>Number of participiants</th>
+            <th><div class="okienko">Name</div></th>
+            <th><div class="okienko">Number of participiants</div></th>
         </tr>
         {% for item in res %}
             <tr>
-                <td>{{ item.country_code__country_name }}</td>
-                <td>{{ item.athlete_count }}</td>
+                <td><div class="okienko">{{ item.country_code__country_name }}</div></td>
+                <td><div class="okienko">{{ item.athlete_count }}</div></td>
             </tr>
         {% endfor %}
     </table>

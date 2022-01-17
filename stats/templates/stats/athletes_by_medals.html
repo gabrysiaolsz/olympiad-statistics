@@ -4,17 +4,17 @@
     Ranking of participants who obtained the most medals in the year {{ year }} <br><br>
     <table>
         <tr>
-            <th>Name</th>
-            <th>Number of gold medals</th>
-            <th>Number of silver medals</th>
-            <th>Number of bronze medals</th>
+            <th><div class="okienko">Name</div></th>
+            <th><div class="okienko">Number of gold medals</div></th>
+            <th><div class="okienko">Number of silver medals</div></th>
+            <th><div class="okienko">Number of bronze medals</div></th>
         </tr>
         {% for item in res %}
             <tr>
-                <td>{{ item.player_id__name }}</td>
-                <td>{{ item.gold_counts }}</td>
-                <td>{{ item.silver_counts }}</td>
-                <td>{{ item.bronze_counts }}</td>
+                <td><div class="okienko">{{ item.player_id__name }}</div></td>
+                <td><div class="okienko">{{ item.gold_counts }}</div></td>
+                <td><div class="okienko">{{ item.silver_counts }}</div></td>
+                <td><div class="okienko">{{ item.bronze_counts }}</div></td>
             </tr>
         {% endfor %}
     </table>

@@ -1,0 +1,37 @@
+{% include "stats/navbar.html" %}
+
+
+            Select the tables and each cell value you want to add 
+            <ul>
+                <li> <input type="checkbox" name="tabela" value="player" onclick="document.getElementById('identyfikator1').style.display = this.checked ? 'block' : 'none'; this.form.elements['Id'].disabled = this.form.elements['Name'].disabled = this.form.elements['Height'].disabled = this.form.elements['Sex'].disabled = !this.checked"> player
+<div id="identyfikator1" style="display: none">
+	<input type="text" name="Id" placeholder="Id">
+	<input type="text" name="Name" placeholder="Name">
+	<input type="text" name="Height" placeholder="Height">
+	<input type="text" name="Sex" placeholder="Sex">
+	
+</div>
+                </li>
+                
+               
+                <li> <input type="checkbox" name="tabela" value="noc_regions" onclick="document.getElementById('identyfikator2').style.display = this.checked ? 'block' : 'none'; this.form.elements['NOC'].disabled = this.form.elements['Region'].disabled = !this.checked"> NOC regions
+<div id="identyfikator2" style="display: none">
+	<input type="text" name="NOC" placeholder="NOC">
+	<input type="text" name="Region" placeholder="Region">
+	
+</div>
+                </li>
+                
+                <li> <input type="checkbox" name="tabela" value="olympiad_info" onclick="document.getElementById('identyfikator3').style.display = this.checked ? 'block' : 'none'; this.form.elements['Games'].disabled = this.form.elements['Year'].disabled = this.form.elements['Season'].disabled = this.form.elements['City'].disabled = !this.checked"> olympiad info
+<div id="identyfikator3" style="display: none">
+	<input type="text" name="Games" placeholder="Games">
+	<input type="text" name="Year" placeholder="Year">
+	<input type="text" name="Season" placeholder="Season">
+	<input type="text" name="City" placeholder="City">
+	
+</div>
+                </li>
+            </ul>
+            
+            
+{% include "stats/footer.html" %}
