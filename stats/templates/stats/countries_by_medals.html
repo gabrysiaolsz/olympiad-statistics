@@ -1,27 +1,36 @@
 {% include "stats/navbar.html" %}
 
-    
-    {% if res %}
 
-        Ranking of countries by how many medals of color they won {{ color }} in a year {{ year }}
-        <table>
+{% if res %}
+
+    Ranking of countries by how many {{ color }} medals they won in a year {{ year }}.
+    <br> <br>
+    <table>
+        <tr>
+            <th>
+                <div class="okienko">Name of the country</div>
+            </th>
+            <th>
+                <div class="okienko">Number of medals</div>
+            </th>
+        </tr>
+        {% for item in res %}
             <tr>
-                <th><div class="okienko">Name of the country</div></th>
-                <th><div class="okienko">Number of medals</div></th>
+                <td>
+                    <div class="okienko">{{ item.country_code__country_name }}</div>
+                </td>
+                <td>
+                    <div class="okienko">{{ item.medals_count }}</div>
+                </td>
             </tr>
-            {% for item in res %}
-                <tr>
-                    <td><div class="okienko">{{ item.country_code__country_name }}</div></td>
-                    <td><div class="okienko">{{ item.medals_count }}</div></td>
-                </tr>
-            {% endfor %}
-        </table>
+        {% endfor %}
+    </table>
 
-    {% else %}
-        
-        TODO
+{% else %}
 
-    {% endif %}
-    
+    {% include "stats/error_year.html" %}
+
+{% endif %}
+
 
 {% include "stats/footer.html" %}

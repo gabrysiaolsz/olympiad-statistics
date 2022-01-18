@@ -1,5 +1,4 @@
 from django.db.models import Count, Q, Avg
-from django.db.models.functions import Round
 from django.shortcuts import render
 
 from stats.models import Statistics, Athlete
@@ -93,7 +92,7 @@ def countries_by_medals(request):
     if not result:
         return render(request, 'stats/countries_by_medals.html')
 
-    context = {'res': result}
+    context = {'res': result, 'color': medal, 'year': year}
     return render(request, 'stats/countries_by_medals.html', context)
 
 
