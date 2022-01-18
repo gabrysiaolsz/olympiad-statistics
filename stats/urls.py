@@ -14,9 +14,6 @@ urlpatterns = [
     path('athlete/ranking/by_gender_ratio', views.sex_percentage),
     path('sport/ranking/by_athlete_count', views.sport_by_athlete_count),
     
-    path('olympiad/athlete_results/<int:statistics_id>', views.delete_statistics_by_id),
-    path('add_data', views.add_data),
-        
     path('Qby_age', views.Qathletes_by_age),
     path('Qathletes_by_medals', views.Qathletes_by_medals),
     path('Qby_weight', views.Qathletes_by_weight),
@@ -25,5 +22,13 @@ urlpatterns = [
     path('Qcountries_by_medals', views.Qcountries_by_medals),
     path('Qby_mean_height', views.Qmean_height),
     path('Qby_gender_ratio', views.Qsex_percentage),
-    path('Qby_athlete_count', views.Qsport_by_athlete_count)
+    path('Qby_athlete_count', views.Qsport_by_athlete_count),
+    
+    path('add_data', views.add_data),
+    path('add/player', views.add_player),
+    path('add/olympiad', views.add_olympiad),
+    path('add/athlete_result', views.add_athlete_result),
+    path('delete_data', views.delete_data),
+    
+    path('olympiad/athlete_results/<int:statistics_id>', views.delete_statistics_by_id)
 ]

@@ -40,7 +40,18 @@ def Qsport_by_athlete_count(request):
     
 def add_data(request):
     return render(request, 'stats/add_data.html')  
+    
+def add_player(request):
+    return render(request, 'stats/add_player.html') 
+    
+def add_olympiad(request):
+    return render(request, 'stats/add_olympiad.html')  
+     
+def add_athlete_result(request):
+    return render(request, 'stats/add_athlere_result.html') 
 
+def delete_data(request):
+    return render(request, 'stats/delete_data.html') 
 
 def countries_by_medals(request, medal):
     year = request.GET.get("year")
@@ -197,7 +208,8 @@ def athletes_by_age(request):
         try:
             year = int(year)
         except:
-            raise BadRequest()
+            #raise BadRequest()
+            return render(request, 'stats/athletes_by_age.html')
         result = Statistics.objects.filter(games__year=year)
     else:
         result = Statistics.objects
@@ -205,7 +217,7 @@ def athletes_by_age(request):
     result = result.exclude(age=-1).values('player_id__name', 'age').order_by('-age').distinct()
 
     if not result:
-        raise Http404()
+        return render(request, 'stats/athletes_by_age.html')
 
     context = {'res': result, 'year': year}
     return render(request, 'stats/athletes_by_age.html', context)
