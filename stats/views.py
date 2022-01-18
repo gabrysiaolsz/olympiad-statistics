@@ -1,4 +1,5 @@
 from django.db.models import Count, Q, Avg
+from django.db.models.functions import Round
 from django.shortcuts import render
 
 from stats.models import Statistics, Athlete
@@ -252,8 +253,13 @@ def mean_height(request):
     else:
         result = Athlete.objects
 
-    f = result.filter(sex__exact='F').aggregate(Avg('height'))
-    m = result.filter(sex__exact='M').aggregate(Avg('height'))
+    f = result.filter(sex__exact='F').exclude(height=-1)\
+        .aggregate(Avg('height'))
+    m = result.filter(sex__exact='M').exclude(height=-1)\
+        .aggregate(Avg('height'))
+
+    f['height__avg'] = round(f['height__avg'], 3)
+    m['height__avg'] = round(m['height__avg'], 3)
 
     if not f or not m:
         return render(request, 'stats/mean_height.html')

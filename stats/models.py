@@ -21,7 +21,7 @@ class OlympiadInfo(models.Model):
 
 class Athlete(models.Model):
     name = models.CharField(max_length=120)
-    height = models.CharField(max_length=5)
+    height = models.IntegerField()
     sex = models.CharField(max_length=1)
 
     def __str__(self):
