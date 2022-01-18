@@ -65,8 +65,9 @@ def delete_data(request):
     return render(request, 'stats/delete_data.html')
 
 
-def countries_by_medals(request, medal):
+def countries_by_medals(request):
     year = request.GET.get("year")
+    medal = request.GET.get("medal")
     if year:
         try:
             year = int(year)
@@ -229,16 +230,20 @@ def athletes_by_age(request):
     return render(request, 'stats/athletes_by_age.html', context)
 
 
-def countries_by_gold_medals(request, country_code):
-    result = Statistics.objects.filter(country_code__country_code__icontains=country_code) \
-        .filter(medal__icontains='gold') \
-        .values('games_id').annotate(medal_count=Count('games_id')) \
-        .order_by('-medal_count')
+def countries_by_gold_medals(request):
+    country_code = request.GET.get("country_code")
+    if country_code:
+        result = Statistics.objects.filter(country_code__country_code__icontains=country_code) \
+            .filter(medal__icontains='gold') \
+            .values('games_id').annotate(medal_count=Count('games_id')) \
+            .order_by('-medal_count')
+    else:
+        result = None
 
     if not result:
         return render(request, 'stats/countries_by_gold_medals.html')
 
-    context = {'res': result}
+    context = {'res': result, 'country': country_code}
     return render(request, 'stats/countries_by_gold_medals.html', context)
 
 

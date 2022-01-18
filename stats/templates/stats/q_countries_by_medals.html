@@ -1,11 +1,12 @@
-{% include "stats/navbar.html" %}			
-    
-             
-    <form>           
-        Show the ranking of the countries by number of medals of color <input type="radio" name="color" value="golden"> golden,  <input type="radio" name="color" value="silver"> silver,  <input type="radio" name="color" value="brown"> brown in the year <input name="year">           
-        <br>
-        <input type="submit" value="show statistic">
-     </form>       
+{% include "stats/navbar.html" %}
+
+<form action="country/ranking/by_medals" method="get">
+    Show the ranking of the countries by number of medals of color <input type="radio" name="medal" value="gold">
+    gold, <input type="radio" name="medal" value="silver"> silver, <input type="radio" name="medal" value="bronze">
+    bronze in the year <input name="year">
+    <br>
+    <input type="submit" value="show statistic">
+</form>
 
 
 {% include "stats/footer.html" %}
