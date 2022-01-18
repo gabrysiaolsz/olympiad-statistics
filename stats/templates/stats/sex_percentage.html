@@ -1,9 +1,15 @@
 {% include "stats/navbar.html" %}
 
+    {% if female %}
 
-Percentage of women in the Olympics {{ female }} <br><br>
+        Percentage of women in the Olympics {{ female }} in year {{ year }}  <br><br>
 
-Percentage of men in the Olympics {{ male }}
+        Percentage of men in the Olympics {{ male }} in year {{ year }}
 
+    {% else %}
+        
+        {% include "stats/error_year.html" %}
+
+    {% endif %}
     
 {% include "stats/footer.html" %}
