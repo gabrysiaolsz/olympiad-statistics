@@ -242,13 +242,23 @@ def countries_by_gold_medals(request, country_code):
 
 
 def mean_height(request):
-    f = Athlete.objects.filter(sex__exact='F').aggregate(Avg('height'))
-    m = Athlete.objects.filter(sex__exact='M').aggregate(Avg('height'))
+    year = request.GET.get("year")
+    if year:
+        try:
+            year = int(year)
+        except:
+            return render(request, 'stats/mean_height.html')
+        result = Athlete.objects.filter(statistics__games__year=year)
+    else:
+        result = Athlete.objects
+
+    f = result.filter(sex__exact='F').aggregate(Avg('height'))
+    m = result.filter(sex__exact='M').aggregate(Avg('height'))
 
     if not f or not m:
         return render(request, 'stats/mean_height.html')
 
-    context = {'female_mean': f, 'male_mean': m}
+    context = {'female_mean': f, 'male_mean': m, 'year': year}
     return render(request, 'stats/mean_height.html', context)
 
 
