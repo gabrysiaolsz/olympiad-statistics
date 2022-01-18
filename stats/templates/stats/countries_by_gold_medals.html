@@ -1,19 +1,27 @@
 {% include "stats/navbar.html" %}
 
+    
+    {% if res %}
 
-    Ranking of gold medals for the country {{ country }} broken down by Olympics
-    <table>
-        <tr>
-            <th><div class="okienko">Name of olympic games</div></th>
-            <th><div class="okienko">Number of medals</div></th>
-        </tr>
-        {% for item in res %}
+        Ranking of gold medals for the country {{ country }} broken down by Olympics
+        <table>
             <tr>
-                <td><div class="okienko">{{ item.games_id }}</div></td>
-                <td><div class="okienko">{{ item.medal_count }}</div></td>
+                <th><div class="okienko">Name of olympic games</div></th>
+                <th><div class="okienko">Number of medals</div></th>
             </tr>
-        {% endfor %}
-    </table>
+            {% for item in res %}
+                <tr>
+                    <td><div class="okienko">{{ item.games_id }}</div></td>
+                    <td><div class="okienko">{{ item.medal_count }}</div></td>
+                </tr>
+            {% endfor %}
+        </table>
 
+    {% else %}
+        
+        TODO
+
+    {% endif %}
+    
 
 {% include "stats/footer.html" %}

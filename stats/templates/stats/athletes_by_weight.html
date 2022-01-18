@@ -1,19 +1,27 @@
 {% include "stats/navbar.html" %}
 
+    
+    {% if res %}
 
-   Ranking of the heaviest athletes of the year {{ year }} <br><br>
-   <table>
-        <tr>
-            <th><div class="okienko">Name</div></th>
-            <th><div class="okienko">Weight</div></th>
-        </tr>
-        {% for item in res %}
-        <tr>
-            <td><div class="okienko">{{ item.player_id__name }}</div></td>
-            <td><div class="okienko">{{ item.weight }}</div></td>
-        </tr>
-        {% endfor %}
-    </table>
+       Ranking of the heaviest athletes of the year {{ year }} <br><br>
+       <table>
+            <tr>
+                <th><div class="okienko">Name</div></th>
+                <th><div class="okienko">Weight</div></th>
+            </tr>
+            {% for item in res %}
+            <tr>
+                <td><div class="okienko">{{ item.player_id__name }}</div></td>
+                <td><div class="okienko">{{ item.weight }}</div></td>
+            </tr>
+            {% endfor %}
+        </table>
 
+    {% else %}
+        
+        {% include "stats/error_year.html" %}
+
+    {% endif %}
+    
 
 {% include "stats/footer.html" %}
