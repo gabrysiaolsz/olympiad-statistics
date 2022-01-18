@@ -1,7 +1,7 @@
 from django.db.models import Count, Q, Avg
 from django.shortcuts import render
 
-from stats.models import Statistics, Athlete
+from stats.models import Statistics, Athlete, OlympiadInfo
 
 
 def index(request):
@@ -46,18 +46,6 @@ def q_sport_by_athlete_count(request):
 
 def add_data(request):
     return render(request, 'stats/add_data.html')
-
-
-def add_player(request):
-    return render(request, 'stats/add_player.html')
-
-
-def add_olympiad(request):
-    return render(request, 'stats/add_olympiad.html')
-
-
-def add_athlete_result(request):
-    return render(request, 'stats/add_athlete_result.html')
 
 
 def delete_data(request):
@@ -283,3 +271,76 @@ def delete_statistics_by_id(request, statistics_id):
     context = {'res': "delete successful"}
     return render(request, 'stats/delete_statistics_by_id.html', context)
 
+
+def q_athlete(request):
+    return render(request, 'stats/q_athlete.html')
+
+
+def q_olympiad(request):
+    return render(request, 'stats/q_olympiad.html')
+
+
+def q_add_athlete_result(request):
+    return render(request, 'stats/q_athlete_result.html')
+
+
+def add_new_athlete(request):
+    contex = {'msg': "Failed to add athlete to the database, make sure all the fields are correct"}
+
+    name = request.POST['name']
+    if not name:
+        return render(request, 'stats/after_adding.html', contex)
+
+    height = request.POST['height']
+    if height:
+        try:
+            height = int(height)
+        except:
+            return render(request, 'stats/after_adding.html', contex)
+    else:
+        return render(request, 'stats/after_adding.html', contex)
+
+    sex = request.POST['sex']
+    if sex != "F" and sex != "M":
+        return render(request, 'stats/after_adding.html', contex)
+
+    new_athlete = Athlete(name=name, height=height, sex=sex)
+    new_athlete.save()
+
+    if new_athlete.id:
+        contex = {'msg': "Added athlete to the database"}
+
+    return render(request, 'stats/after_adding.html', contex)
+
+
+def add_olympiad(request):
+    contex = {'msg': "Failed to add olympiad to the database, make sure all the fields are correct"}
+
+    season = request.POST['season']
+    if not season:
+        return render(request, 'stats/after_adding.html', contex)
+
+    year = request.POST['year']
+    if year:
+        try:
+            year = int(year)
+        except:
+            return render(request, 'stats/after_adding.html', contex)
+    else:
+        return render(request, 'stats/after_adding.html', contex)
+
+    city = request.POST['city']
+    if not city:
+        return render(request, 'stats/after_adding.html', contex)
+
+    new_olympiad = OlympiadInfo(year=year, season=season, city=city, games=str(year)+season)
+    new_olympiad.save()
+
+    if new_olympiad.id:
+        contex = {'msg': "Added olympiad to the database"}
+
+    return render(request, 'stats/after_adding.html', contex)
+
+
+def add_athlete_result(request):
+    return None

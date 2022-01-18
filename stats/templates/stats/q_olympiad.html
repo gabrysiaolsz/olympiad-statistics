@@ -1,0 +1,13 @@
+{% include "stats/navbar.html" %}
+
+
+    <form action="olympiad" method="post">
+        {% csrf_token %}
+        <input name="year" placeholder="Year"> 
+        <input name="season" placeholder="Season"> 
+        <input name="city" placeholder="City"> <br><br>
+        <input type="submit" value="Add">
+    </form>
+    
+            
+{% include "stats/footer.html" %}

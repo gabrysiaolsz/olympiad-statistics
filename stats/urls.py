@@ -29,9 +29,12 @@ urlpatterns = [
 
     # POST
     path('add_data', views.add_data),
-    path('add/player', views.add_player),
-    path('add/olympiad', views.add_olympiad),
-    path('add/athlete_result', views.add_athlete_result),
+    path('q_athlete', views.q_athlete),
+    path('athlete', views.add_new_athlete),
+    path('q_olympiad', views.q_olympiad),
+    path('olympiad', views.add_olympiad),
+    path('q_athlete_result', views.q_add_athlete_result),
+    path('athlete_result', views.add_athlete_result),
     path('delete_data', views.delete_data),
 
     # DELETE

@@ -1,0 +1,15 @@
+{% include "stats/navbar.html" %}
+
+Please fill in the fields below.
+<br> <br>
+
+    <form action="athlete" method="post">
+        {% csrf_token %}
+        <input name="name" placeholder="Name"> 
+        <input name="height" placeholder="Height"> 
+        <input name="sex" placeholder="Sex(F/M)"> <br><br>
+        <input type="submit" value="Add">
+    </form>
+    
+            
+{% include "stats/footer.html" %}
