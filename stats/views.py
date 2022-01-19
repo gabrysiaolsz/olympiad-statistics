@@ -1,5 +1,6 @@
 from django.db.models import Count, Q, Avg
 from django.shortcuts import render
+from django.core.exceptions import BadRequest
 
 from stats.models import Statistics, Athlete, OlympiadInfo
 
@@ -293,7 +294,10 @@ def add_new_athlete(request):
         return render(request, 'stats/after_adding.html', contex)
 
     new_athlete = Athlete(name=name, height=height, sex=sex)
-    new_athlete.save()
+    try:
+        new_athlete.save()
+    except BadRequest as e:
+        return handler_400(request, e)
 
     if new_athlete.id:
         contex = {'msg': "Added athlete to the database."}
@@ -322,7 +326,10 @@ def add_olympiad(request):
         return render(request, 'stats/after_adding.html', contex)
 
     new_olympiad = OlympiadInfo(year=year, season=season, city=city, games=str(year)+season)
-    new_olympiad.save()
+    try:
+        new_olympiad.save()
+    except BadRequest as e:
+        return handler_400(request, e)
 
     if new_olympiad.id:
         contex = {'msg': "Added olympiad to the database."}
@@ -344,3 +351,8 @@ def delete_statistics_by_id(request, statistics_id):
 
     context = {'res': "delete successful"}
     return render(request, 'stats/delete_statistics_by_id.html', context)
+
+
+def handler_400(request, exception: BadRequest):
+    contex = {'msg': str(exception)}
+    return render(request, 'stats/error_400.html', contex, status=400)

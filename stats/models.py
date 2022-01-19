@@ -10,9 +10,17 @@ class Country(models.Model):
 
 
 class OlympiadInfo(models.Model):
+    SUMMER = "Summer"
+    WINTER = "Winter"
+
+    SEASON_CHOICES = (
+        (SUMMER, "Summer"),
+        (WINTER, "Winter"),
+    )
+
     games = models.CharField(max_length=15, unique=True)
     year = models.IntegerField()
-    season = models.CharField(max_length=10)
+    season = models.CharField(max_length=10, choices=SEASON_CHOICES)
     city = models.CharField(max_length=30)
 
     def __str__(self):
