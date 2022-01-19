@@ -410,16 +410,25 @@ def add_athlete_result(request):
     return render(request, 'stats/after_adding.html', contex)
 
 
-def delete_statistics_by_id(request, statistics_id):
+def delete_statistics_by_id(request):
+    context = {'msg': "Delete failed. Make sure to put the correct id."}
+
+    stats_id = request.POST['stats_id']
+    if stats_id:
+        try:
+            stats_id = int(stats_id)
+        except:
+            return render(request, 'stats/after_deleting.html', context)
+    else:
+        return render(request, 'stats/after_adding.html', context)
     try:
-        record = Statistics.objects.get(pk=statistics_id)
+        record = Statistics.objects.get(pk=stats_id)
         record.delete()
     except:
-        context = {'res': "delete unsuccessful"}
-        return render(request, 'stats/delete_statistics_by_id.html', context)
+        return render(request, 'stats/after_deleting.html', context)
 
-    context = {'res': "delete successful"}
-    return render(request, 'stats/delete_statistics_by_id.html', context)
+    context = {'msg': "Successfully deleted the results."}
+    return render(request, 'stats/after_deleting.html', context)
 
 
 def handler_400(request, exception: BadRequest):

@@ -38,5 +38,5 @@ urlpatterns = [
     path('delete_data', views.delete_data),
 
     # DELETE
-    path('olympiad/athlete_results/<int:statistics_id>', views.delete_statistics_by_id)
+    path('olympiad/athlete_results', views.delete_statistics_by_id)
 ]

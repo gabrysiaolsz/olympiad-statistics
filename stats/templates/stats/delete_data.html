@@ -1,8 +1,9 @@
 {% include "stats/navbar.html" %}
 
      
-    <form>
-        Enter the id of the athlete results to be removed <input name="id_athlete_result" placeholder="Results id"> <br><br>
+    <form action="olympiad/athlete_results" method="post">
+        {% csrf_token %}
+        Enter the id of the athlete results to be removed: <input name="stats_id" placeholder="Results id"> <br><br>
         <input type="submit" value="Delete">
     </form>
 
