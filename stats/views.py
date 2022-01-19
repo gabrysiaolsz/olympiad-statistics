@@ -218,9 +218,9 @@ def athletes_by_age(request):
 
 
 def countries_by_gold_medals(request):
-    country_code = request.GET.get("country_code")
-    if country_code:
-        result = Statistics.objects.filter(country_code__country_code__icontains=country_code) \
+    country = request.GET.get("country")
+    if country:
+        result = Statistics.objects.filter(country_code__country_name__icontains=country) \
             .filter(medal__icontains='gold') \
             .values('games_id').annotate(medal_count=Count('games_id')) \
             .order_by('-medal_count')
@@ -230,7 +230,7 @@ def countries_by_gold_medals(request):
     if not result:
         return render(request, 'stats/countries_by_gold_medals.html')
 
-    context = {'res': result, 'country': country_code}
+    context = {'res': result, 'country': country}
     return render(request, 'stats/countries_by_gold_medals.html', context)
 
 
@@ -250,8 +250,8 @@ def mean_height(request):
     m = result.filter(sex__exact='M').exclude(height=-1)\
         .aggregate(Avg('height'))
 
-    f['height__avg'] = round(f['height__avg'], 3)
-    m['height__avg'] = round(m['height__avg'], 3)
+    f['height__avg'] = round(f['height__avg'], 1)
+    m['height__avg'] = round(m['height__avg'], 1)
 
     if not f or not m:
         return render(request, 'stats/mean_height.html')
