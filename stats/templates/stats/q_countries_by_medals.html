@@ -1,9 +1,13 @@
 {% include "stats/navbar.html" %}
 
 <form action="country/ranking/by_medals" method="get">
-    Show the ranking of the countries by number of medals of color <input type="radio" name="medal" value="gold">
-    gold, <input type="radio" name="medal" value="silver"> silver, <input type="radio" name="medal" value="bronze">
-    bronze in the year <input name="year">
+    Choose medal color:
+    <input type="radio" name="medal" value="gold"> gold
+    <input type="radio" name="medal" value="silver"> silver
+    <input type="radio" name="medal" value="bronze"> bronze
+    <br> <br>
+
+    Choose year: <input name="year">
     <br>
     <input type="submit" value="show statistic">
 </form>
