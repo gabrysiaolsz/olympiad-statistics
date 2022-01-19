@@ -53,21 +53,126 @@
 
 
         <p> That's what our application can do: </p>
-        <ul>
-            <li><a href="Qby_age"> Rank athletes competing in a given Olympics by their age </a></li>
-            <li><a href="Qathletes_by_medals"> Rank athletes competing in a given Olympics by won medals </a></li>
-            <li><a href="Qby_weight"> Rank athletes competing in a given Olympics by their weight </a></li>
-            <li><a href="Qby_players"> Rank participating countries by number of representing athletes </a></li>
-            <li><a href="Qby_gold_medals"> Show number of gold medals won by a given country over the years </a></li>
-            <li><a href="Qcountries_by_medals"> Rank countries by number of won medals of particular color in a given year </a></li>
-            <li><a href="Qby_mean_height"> Show the average height of females and males in a given year </a></li>
-            <li><a href="Qby_gender_ratio"> Show sex demographics in a given year </a></li>
-            <li><a href="Qby_athlete_count"> Rank disciplines by number of participants in a given year </a></li>
-        </ul>
-
-        <span> <a href="add_data"> Add statistics to the database </a>  </span> <br><br>
         
-        <span> <a href="delete_data"> Delete athlete results from the database </a>
+        
+        <div class="zapytania">
+            <div class="zapytanie" style="background-color: #75b6bb">
+                <a href="Qby_age"> 
+                    <table>
+                        <tr>
+                            <td> <div class="pic"><img src="{% static 'stats/img/pic/pic1.png' %}"></div> </td>
+                            <td> <div class="zap"> Rank athletes competing <br> in a given Olympics <br> by their age  </div> 
+                        </tr>
+                    </table>
+                </a>
+            </div> 
+            <div class="zapytanie" style="background-color: #e64c58">
+                <a href="Qathletes_by_medals"> 
+                    <table>
+                        <tr>
+                            <td> <div class="pic"><img src="{% static 'stats/img/pic/pic2.png' %}"></div> </td>
+                            <td> <div class="zap"> Rank athletes competing <br> in a given Olympics <br> by won medals  </div> 
+                        </tr>
+                    </table>
+                </a>
+            </div> 
+            <div class="zapytanie" style="background-color: #88c388">
+                <a href="Qby_weight"> 
+                    <table>
+                        <tr>
+                            <td> <div class="pic"><img src="{% static 'stats/img/pic/pic3.png' %}"></div> </td>
+                            <td> <div class="zap"> Rank athletes competing <br> in a given Olympics <br> by their weight </div> 
+                        </tr>
+                    </table>
+                </a>
+            </div> 
+            <div class="zapytanie" style="background-color: #f2b431">
+                <a href="Qby_players"> 
+                    <table>
+                        <tr>
+                            <td> <div class="pic"><img src="{% static 'stats/img/pic/pic4.png' %}"></div> </td>
+                            <td> <div class="zap"> Rank participating <br> countries by number <br> of representing athletes </div> 
+                        </tr>
+                    </table>
+                </a>
+            </div> 
+            <div class="zapytanie" style="background-color: #5a5e68">
+                <a href="Qby_gold_medals">
+                    <table>
+                        <tr>
+                            <td> <div class="pic"><img src="{% static 'stats/img/pic/pic5.png' %}"></div> </td>
+                            <td> <div class="zap"> Show number of gold <br> medals won by a given <br> country over the years</div> 
+                        </tr>
+                    </table>
+                </a>
+            </div> 
+            <div class="zapytanie" style="background-color: #75b6bb">
+                <a href="Qcountries_by_medals">
+                    <table>
+                        <tr>
+                            <td> <div class="pic"><img src="{% static 'stats/img/pic/pic6.png' %}"></div> </td>
+                            <td> <div class="zap"> Rank countries <br> by number of won <br> medals of particular <br> color in a given year </div> 
+                        </tr>
+                    </table>
+                </a>
+            </div> 
+            <div class="zapytanie" style="background-color: #e64c58">
+                <a href="Qby_mean_height">
+                    <table>
+                        <tr>
+                            <td> <div class="pic"><img src="{% static 'stats/img/pic/pic7.png' %}"></div> </td>
+                            <td> <div class="zap"> Show the average height  <br> of females and males <br> in a given year </div> 
+                        </tr>
+                    </table>
+                </a>
+            </div> 
+            <div class="zapytanie" style="background-color: #88c388">
+                <a href="Qby_gender_ratio"> 
+                    <table>
+                        <tr>
+                            <td> <div class="pic"><img src="{% static 'stats/img/pic/pic8.png' %}"></div> </td>
+                            <td> <div class="zap"> Show sex demographics <br> in a given year </div> 
+                        </tr>
+                    </table>
+                </a>
+            </div> 
+            <div class="zapytanie" style="background-color: #f2b431">
+                <a href="Qby_athlete_count"> 
+                    <table>
+                        <tr>
+                            <td> <div class="pic"><img src="{% static 'stats/img/pic/pic9.png' %}"></div> </td>
+                            <td> <div class="zap"> Rank disciplines by <br> number of participants <br> in a given year </div> 
+                        </tr>
+                    </table>
+                </a>
+            </div> 
+        </div>
+        
+        <br><br><br>
+        
+        <div class="add_delete"> 
+             <div class="zapytanie" style="background-color: #75b6bb">
+                <a href="add_data">
+                    <table>
+                        <tr>
+                            <td> <div class="pic"><img src="{% static 'stats/img/pic/plus.png' %}"></div> </td>
+                            <td> <div class="zap"> Add statistics to the database </div> 
+                        </tr>
+                    </table>
+                </a>
+            </div> 
+            <div style="width: 20px; display: inline-block"> </div>
+            <div class="zapytanie" style="background-color: #5a5e68">
+                <a href="delete_data"> 
+                    <table>
+                        <tr>
+                            <td> <div class="pic"><img src="{% static 'stats/img/pic/minus.png' %}"></div> </td>
+                            <td> <div class="zap"> Delete athlete results from the database </div> 
+                        </tr>
+                    </table>
+                </a>
+            </div> 
+        </div>
 
     </div>
 

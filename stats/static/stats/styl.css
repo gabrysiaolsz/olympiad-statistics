@@ -53,7 +53,8 @@ body
 /*INFORMACJE*/
 .informacje
 {
-	background-color: #bcc0c3;
+	
+	background-color: #acbfc1; /*background-color: #bcc0c3;*/
 	padding: 30px;
 	color: #2d3f41;
 	border-radius: 5px;
@@ -81,8 +82,7 @@ body
 .informacje a
 {
 	text-decoration: none;
-	color: #2d3f41; /* 3E464F;*/
-	/*font-size: 20px;*/
+	color: #2d3f41; 
 }
 
 .informacje a:hover
@@ -120,7 +120,7 @@ input[type=submit]:hover
 table, th, td 
 {
     border: 1px solid #000000;
-    background-color: white;
+    background-color: white; 
     margin-left: auto;
     margin-right: auto;
     border-radius: 3px;
@@ -130,6 +130,54 @@ table, th, td
 {
     margin: 10px;
 }
+
+.zapytania 
+{
+    width: 1195px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.add_delete 
+{
+    width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.zapytania table, .zapytania td, .add_delete table, .add_delete td
+{
+    border: 0px;
+    border-radius: 0px;
+    background-color: transparent; 
+    margin: 0px;
+}
+
+.zapytanie
+{
+	display: inline-block;
+	width: 380px;
+	text-align: center;
+	padding: 5px;
+	transition: all 0.2s ease-in-out;
+	border-radius: 3px;
+	border: 2px solid #000;
+}
+
+.zapytanie:hover
+{
+	-webkit-transform: scale(0.9);
+	-ms-transform: scale(0.9);
+	transform: scale(0.9);
+}
+
+.pic, .zap
+{
+    color: white;
+    margin: 10px;
+}
+
+
 
 /*INFORMACJE-KONIEC*/
 
