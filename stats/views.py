@@ -2,7 +2,7 @@ from django.db.models import Count, Q, Avg
 from django.shortcuts import render
 from django.core.exceptions import BadRequest
 
-from stats.models import Statistics, Athlete, OlympiadInfo
+from stats.models import Statistics, Athlete, OlympiadInfo, Country
 
 
 def index(request):
@@ -274,7 +274,7 @@ def q_add_athlete_result(request):
 
 
 def add_new_athlete(request):
-    contex = {'msg': "Failed to add athlete to the database, make sure all the fields are correct."}
+    contex = {'msg': "Failed to add athlete to the database, make sure all fields are correct."}
 
     name = request.POST['name']
     if not name:
@@ -306,7 +306,7 @@ def add_new_athlete(request):
 
 
 def add_olympiad(request):
-    contex = {'msg': "Failed to add olympiad to the database, make sure all the fields are correct."}
+    contex = {'msg': "Failed to add olympiad to the database, make sure all fields are correct."}
 
     season = request.POST['season']
     if not season:
@@ -338,7 +338,76 @@ def add_olympiad(request):
 
 
 def add_athlete_result(request):
-    return None
+    contex = {'msg': "Failed to add athlete results to the database, make sure all fields are correct."}
+
+    name = request.POST['athlete_name']
+    if not name:
+        return render(request, 'stats/after_adding.html', contex)
+
+    weight = request.POST['weight']
+    if weight:
+        try:
+            weight = int(weight)
+        except:
+            return render(request, 'stats/after_adding.html', contex)
+    else:
+        return render(request, 'stats/after_adding.html', contex)
+
+    games = request.POST['games_id']
+    if not games:
+        return render(request, 'stats/after_adding.html', contex)
+
+    sport = request.POST['sport']
+    if not sport:
+        return render(request, 'stats/after_adding.html', contex)
+
+    event = request.POST['event']
+    if not event:
+        return render(request, 'stats/after_adding.html', contex)
+
+    medal = request.POST['medal']
+    if not medal:
+        return render(request, 'stats/after_adding.html', contex)
+
+    country = request.POST['country']
+    if not country:
+        return render(request, 'stats/after_adding.html', contex)
+
+    age = request.POST['age']
+    if age:
+        try:
+            age = int(age)
+        except:
+            return render(request, 'stats/after_adding.html', contex)
+    else:
+        return render(request, 'stats/after_adding.html', contex)
+
+    # making sure that the athlete exists
+    athlete_id = Athlete.objects.get(name__iexact=name).id
+    if not athlete_id:
+        return render(request, 'stats/after_adding.html', contex)
+
+    # making sure that the olympics exists
+    games_id = OlympiadInfo.objects.get(games__iexact=games).games
+    if games_id is None:
+        return render(request, 'stats/after_adding.html', contex)
+
+    # making sure that the country exists
+    country_code = Country.objects.get(country_name__iexact=country).country_code
+    if not country_code:
+        return render(request, 'stats/after_adding.html', contex)
+
+    new_result = Statistics(player_id_id=athlete_id, weight=weight, games_id=games_id, sport=sport,
+                            event=event, medal=medal, country_code_id=country_code, age=age)
+    try:
+        new_result.save()
+    except BadRequest as e:
+        return handler_400(request, e)
+
+    if new_result.id:
+        contex = {'msg': "Added athlete results to the database."}
+
+    return render(request, 'stats/after_adding.html', contex)
 
 
 def delete_statistics_by_id(request, statistics_id):

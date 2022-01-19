@@ -3,17 +3,18 @@
 Please fill in the fields below.
 <br> <br>
 
-    <form>
-        <input name="athlete_name" placeholder="Athlete name"> 
-        <input name="weight" placeholder="Weight"> 
-        <input name="games_id" placeholder="Games id"> 
-        <input name="sport" placeholder="Sport">
-        <br> <br>
-        <input name="event" placeholder="Event"> 
-        <input name="medal" placeholder="Medal"> 
-        <input name="country" placeholder="Country"> 
-        <input name="age" placeholder="Age"> <br><br>
-        <input type="submit" value="Add">
-    </form>
-            
+<form action="athlete_result" method="post" >
+    {% csrf_token %}
+    <input name="athlete_name" placeholder="Athlete name">
+    <input name="weight" placeholder="Weight">
+    <input name="games_id" placeholder="Games id">
+    <input name="sport" placeholder="Sport">
+    <br> <br>
+    <input name="event" placeholder="Event">
+    <input name="medal" placeholder="Medal">
+    <input name="country" placeholder="Country">
+    <input name="age" placeholder="Age"> <br><br>
+    <input type="submit" value="Add">
+</form>
+
 {% include "stats/footer.html" %}
