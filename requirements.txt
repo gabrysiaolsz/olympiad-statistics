@@ -1,0 +1,14 @@
+asgiref==3.4.1
+automium==0.2.6
+automium-web==0.1.1
+click==8.0.3
+Django==4.0
+Flask==2.0.2
+itsdangerous==2.0.1
+Jinja2==3.0.3
+legacy==0.1.6
+MarkupSafe==2.0.1
+null==0.6.1
+six==1.16.0
+sqlparse==0.4.2
+Werkzeug==2.0.2
