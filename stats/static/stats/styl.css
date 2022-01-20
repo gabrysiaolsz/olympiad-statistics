@@ -53,10 +53,9 @@ body
 /*INFORMACJE*/
 .informacje
 {
-	
-	background-color: #acbfc1; /*background-color: #bcc0c3;*/
+	background-color: #acbfc1;
 	padding: 30px;
-	color: #2d3f41;
+	color: #021a73;
 	border-radius: 5px;
 }
 
@@ -66,23 +65,20 @@ body
 	font-weight: 900;
 	letter-spacing: 2px;
 	text-shadow:0 0 6px #6B6560;
-	color: #2d3f41;
 }
-
-
 
 .kropeczki
 {
 	height: 5px;
 	margin-top: 15px;
 	margin-bottom: 20px;
-	border-bottom: 2px dotted #3d3f41;
+	border-bottom: 2px dotted #021a73;
 }
 
 .informacje a
 {
 	text-decoration: none;
-	color: #2d3f41; 
+	color: #021a73; 
 }
 
 .informacje a:hover
@@ -103,6 +99,7 @@ input[type=submit]
 	cursor: pointer;
 	letter-spacing: 2px;
 	outline: none;
+	margin-left: 50px;
 }
 
 input[type=submit]:focus
@@ -173,26 +170,83 @@ table, th, td
 
 .pic, .zap
 {
-    color: black;
-	font-weight: 500;
+    color: #021a73;
     margin: 10px;
 }
 
+.add input[type=text]
+{
+	width: 300px;
+	background-color: #efefef;
+	color: #666;
+	border: 2px solid #ddd;
+	border-radius: 5px;
+	font-size: 20px;
+	padding: 10px;
+	box-sizing: border-box;
+	outline: none;
+	margin-top: 10px;
+}
 
+.add input[type=text]:focus
+{
+	-webkit-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+	-moz-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+	box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+	border: 2px solid #A5B9CD;
+	background-color: #E9EEF3;
+	color: #021a73;
+}
+
+.inquiry input[type=text]
+{
+	background-color: #efefef;
+	color: #666;
+	border: 2px solid #8da9c4;
+	border-radius: 5px;
+	outline: none;
+}
+
+.inquiry input[type=text]:focus
+{
+	-webkit-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+	-moz-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+	box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+	border: 2px solid #A5B9CD;
+	background-color: #E9EEF3;
+	color: #021a73;
+}
+
+.inquiry input[type=radio]
+{
+    display: none;
+}
+
+.inquiry label:before
+{
+    content: "";
+    display: inline-block; 
+    height: 9px;
+    width: 9px;
+    border-radius: 9px;
+    background-color: #efefef;
+    border: 2px solid #8da9c4;
+    margin-left: 2px;
+}
+
+.inquiry input[type=radio]:checked + label:before
+{
+    content: "";
+    display: inline-block; 
+    height: 9px;
+    width: 9px;
+    border-radius: 9px;
+    background-color: #8da9c4;
+    border: 2px solid #efefef;
+    margin-left: 2px;
+}
 
 /*INFORMACJE-KONIEC*/
-
-/*STOPKA*/
-.stopka
-{
-	padding: 10px;
-	position: fixed;
-	bottom: 0px;
-	width: 100%;
-	background-color: #f2f2f2;
-	text-align: center;
-}
-/*STOPKA-KONIEC*/
 
 
 
@@ -210,8 +264,3 @@ table, th, td
 }
 /*SCROLLUP-KONIEC*/
 
-/*.pie {
-  width: 100px; height: 100px;
-  border-radius: 50%;
-  background: yellowgreen;
-}*/

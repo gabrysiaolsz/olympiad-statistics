@@ -1,11 +1,15 @@
 {% include "stats/navbar.html" %}
 
-<form action="country/by_gold_medals" method="get">
 
-    Choose the country: <input name="country">
-    <br>
+<div class="inquiry">	
+    <form action="country/by_gold_medals" method="get">
 
-    <input type="submit" value="show statistic">
-</form>
+        Choose the country: <input type="text" name="country">
+        <br>
+
+        <input type="submit" value="show statistic">
+    </form>
+</div>        
+
 
 {% include "stats/footer.html" %}

@@ -1,15 +1,17 @@
 {% include "stats/navbar.html" %}
 
-Please fill in the fields below.
+<span style="font-size: 20px"> Please fill in the fields below. </span>
 <br> <br>
 
+<div class="add">
     <form action="athlete" method="post">
         {% csrf_token %}
-        <input name="name" placeholder="Name"> 
-        <input name="height" placeholder="Height"> 
-        <input name="sex" placeholder="Sex(F/M)"> <br><br>
+        <input type="text" name="name" placeholder="Name"> 
+        <input type="text" name="height" placeholder="Height"> 
+        <input type="text" name="sex" placeholder="Sex(F/M)"> <br><br>
         <input type="submit" value="Add">
     </form>
-    
+</div>
+
             
 {% include "stats/footer.html" %}

@@ -1,20 +1,22 @@
 {% include "stats/navbar.html" %}
 
-Please fill in the fields below.
+<span style="font-size: 20px"> Please fill in the fields below. </span>
 <br> <br>
 
-<form action="athlete_result" method="post" >
-    {% csrf_token %}
-    <input name="athlete_name" placeholder="Athlete name">
-    <input name="weight" placeholder="Weight">
-    <input name="games_id" placeholder="Games id">
-    <input name="sport" placeholder="Sport">
-    <br> <br>
-    <input name="event" placeholder="Event">
-    <input name="medal" placeholder="Medal">
-    <input name="country" placeholder="Country">
-    <input name="age" placeholder="Age"> <br><br>
-    <input type="submit" value="Add">
-</form>
+<div class="add">
+    <form action="athlete_result" method="post" >
+        {% csrf_token %}
+        <input type="text" name="athlete_name" placeholder="Athlete name">
+        <input type="text" name="weight" placeholder="Weight">
+        <input type="text" name="games_id" placeholder="Games id">
+        <input type="text" name="sport" placeholder="Sport">
+        <br> <br>
+        <input type="text" name="event" placeholder="Event">
+        <input type="text" name="medal" placeholder="Medal">
+        <input type="text" name="country" placeholder="Country">
+        <input type="text" name="age" placeholder="Age"> <br><br>
+        <input type="submit" value="Add">
+    </form>
+</div>
 
 {% include "stats/footer.html" %}

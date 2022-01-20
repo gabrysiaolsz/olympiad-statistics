@@ -1,13 +1,15 @@
 {% include "stats/navbar.html" %}	
 
 
+<div class="inquiry">
     <form action="athlete/ranking/by_weight" method="get">	
-        Choose the Olympics year: <input name="year">
+        Choose the Olympics year: <input type="text" name="year">
         <br> <br>
         If left empty, results from all Olympics will be shown.
         <br>
         <input type="submit" value="show statistics">
     </form>
+</div>
 
 
 {% include "stats/footer.html" %}

@@ -1,16 +1,19 @@
 {% include "stats/navbar.html" %}
 
-<form action="country/ranking/by_medals" method="get">
-    Choose medal color:
-    <input type="radio" name="medal" value="gold"> gold
-    <input type="radio" name="medal" value="silver"> silver
-    <input type="radio" name="medal" value="bronze"> bronze
-    <br> <br>
 
-    Choose year: <input name="year">
-    <br>
-    <input type="submit" value="show statistic">
-</form>
+<div class="inquiry">	
+    <form action="country/ranking/by_medals" method="get">
+        Choose medal color:
+        <input id="gold" type="radio" name="medal" value="gold"> <label for="gold">  gold </label>
+        <input id="silver" type="radio" name="medal" value="silver"> <label for="silver"> silver </label>
+        <input id="bronze" type="radio" name="medal" value="bronze"> <label for="bronze"> bronze </label>
+        <br> <br>
+
+        Choose year: <input type="text" name="year">
+        <br>
+        <input type="submit" value="show statistic">
+    </form>
+</div>   
 
 
 {% include "stats/footer.html" %}

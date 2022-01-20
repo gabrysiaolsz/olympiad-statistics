@@ -1,11 +1,11 @@
 {% include "stats/navbar.html" %}
 
-     
+<div class="add">     
     <form action="olympiad/athlete_results" method="post">
         {% csrf_token %}
-        Enter the id of the athlete results to be removed: <input name="stats_id" placeholder="Results id"> <br><br>
+        <span style="font-size: 20px"> Enter the id of the athlete results to be removed: </span> <br><input type="text" name="stats_id" placeholder="Results id" style="margin-left:  50px"> <br><br>
         <input type="submit" value="Delete">
     </form>
-
+</div>
             
 {% include "stats/footer.html" %}

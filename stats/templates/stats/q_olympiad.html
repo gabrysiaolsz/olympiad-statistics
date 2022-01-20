@@ -1,15 +1,17 @@
 {% include "stats/navbar.html" %}
 
-Please fill in the fields below.
+<span style="font-size: 20px"> Please fill in the fields below. </span>
 <br> <br>
 
+<div class="add">
     <form action="olympiad" method="post">
         {% csrf_token %}
-        <input name="year" placeholder="Year"> 
-        <input name="season" placeholder="Season"> 
-        <input name="city" placeholder="City"> <br><br>
+        <input type="text" name="year" placeholder="Year"> 
+        <input type="text" name="season" placeholder="Season"> 
+        <input type="text" name="city" placeholder="City"> <br><br>
         <input type="submit" value="Add">
     </form>
+</div>
     
             
 {% include "stats/footer.html" %}
