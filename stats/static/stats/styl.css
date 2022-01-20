@@ -173,7 +173,8 @@ table, th, td
 
 .pic, .zap
 {
-    color: white;
+    color: black;
+	font-weight: 500;
     margin: 10px;
 }
 
